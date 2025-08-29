@@ -1,0 +1,27 @@
+.header {
+   color: rgba(255, 255, 255, 1);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.header__container {
+   width: 880px;
+   min-width: 320px;
+   max-height: 74px;
+   min-height: 56px;
+   border-bottom: 1px solid rgba(84, 84, 84, 1);
+
+}
+
+.header__container-icon {
+   max-width: 173px;
+   min-width: 126px;
+   max-height: 33px;
+   min-height: 24px;
+
+}
+
+.header__icon {
+   width: 100%;
+}

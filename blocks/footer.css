@@ -1,0 +1,18 @@
+.footer {
+   margin-top: 67px;
+   color: rgba(84, 84, 84, 1);
+   margin-top:67px;
+   padding-bottom: 60px;
+
+}
+
+.footer__text {
+   width: 318px ;
+   margin: 0;
+   font-family: "Inter";
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 100%;
+   letter-spacing: 0%;
+   padding-left: calc((100vw - 880px)/2);
+}
