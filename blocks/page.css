@@ -5,4 +5,5 @@
    background-color: rgba(0, 0, 0, 1);
    padding-top:45px;
    padding-left: 0 calc(100vw  - 980px);
+   position: relative;
 }
