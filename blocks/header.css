@@ -3,26 +3,43 @@
    display: flex;
    flex-direction: column;
    align-items: center;
+   height: 234px;
 }
 
 .header__container {
    width: 880px;
    min-width: 320px;
    height: 74px;
-   min-height: 56px;
    border-bottom: 1px solid rgba(84, 84, 84, 1);
 
 }
 
 .header__container-icon {
    max-width: 173px;
-   min-width: 126px;
    max-height: 33px;
-   min-height: 24px;
-
 }
 
 .header__icon {
    width: 100%;
 }
 
+@media (max-width:918px) {
+   .header {
+      height: 424px;
+}
+
+   .header__container {
+      max-width: 600px;
+      height: 74px;
+   }
+}
+
+@media (max-width:619px) {
+   .header {
+      height: auto;
+}
+   .header__container {
+      max-width: 320px;
+      height: 56px;
+   }
+}

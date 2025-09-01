@@ -6,6 +6,7 @@ const formModalEdit = document.querySelector(".modal-edit__form");
 const buttonCloseModalEdit = document.querySelector(".modal-edit__button-close");
 const nameInput = document.querySelector(".modal-edit__input-name");
 const descriptionInput = document.querySelector(".modal-edit__input-description");
+const submitInput = document.querySelector(".modal-edit__submit")
 const nameProfile = document.querySelector(".profile__name");
 const descriptionProfile = document.querySelector(".profile__description");
 
@@ -35,3 +36,10 @@ function openModal() {
 buttonEdit.addEventListener("click", openModal);
 formModalEdit.addEventListener("submit", saveProfileSubmit);
 buttonCloseModalEdit.addEventListener("click", closeModal);
+
+
+
+
+if (nameInput.value.legth > 0 && descriptionInput.value.legth > 0) {
+   submitInput.classList.add(".modal-edit__submit_black");
+}

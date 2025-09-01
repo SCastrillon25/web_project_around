@@ -16,3 +16,17 @@
    letter-spacing: 0%;
    padding-left: calc((100vw - 880px)/2);
 }
+
+@media (max-width:918px) {
+   .footer {
+      padding-left: calc((100vw - 600px)/2);
+   }
+}
+
+@media (max-width:619px) {
+   .footer {
+      display:flex;
+      justify-content: center;
+      text-align: center;
+   }
+}

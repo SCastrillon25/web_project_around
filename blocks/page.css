@@ -4,6 +4,11 @@
    margin: 0 auto;
    background-color: rgba(0, 0, 0, 1);
    padding-top:45px;
-   padding-left: 0 calc(100vw  - 980px);
    position: relative;
+}
+
+@media (max-width:619px) {
+   .page {
+      padding-top: 28px;
+   }
 }
