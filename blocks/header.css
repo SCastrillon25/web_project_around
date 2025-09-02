@@ -16,11 +16,11 @@
 
 .header__container-icon {
    max-width: 173px;
-   max-height: 33px;
 }
 
 .header__icon {
    width: 100%;
+   margin-bottom: 41px;
 }
 
 @media (max-width:918px) {
@@ -41,5 +41,9 @@
    .header__container {
       max-width: 320px;
       height: 56px;
+   }
+
+   .header__icon {
+      margin-bottom: 0;
    }
 }

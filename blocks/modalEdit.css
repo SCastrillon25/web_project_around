@@ -34,6 +34,10 @@
    background-position: center;
 }
 
+.modal-edit__button-close:hover {
+   opacity: 60%;
+}
+
 .modal-edit__title {
    width: 330px;
    min-width: 238px;
@@ -68,8 +72,8 @@
    line-height: 100%;
    letter-spacing: 0%;
    color: rgba(0, 0, 0, 1);
-
 }
+
 
 .modal-edit__submit {
    width: 358px;
@@ -79,17 +83,23 @@
    border-radius: 2px;
    border: 1px solid rgba(196, 196, 196, 1);
    color: rgba(196, 196, 196, 1);
-   background-color: rgba(255, 255, 255, 1);
+   background: rgba(0, 0, 0, 1);
    font-family: "Inter";
    font-weight: 400;
    font-size: 18px;
    line-height: 100%;
    letter-spacing: 0%;
    text-align: center;
+   cursor: pointer;
 }
 
-.modal-edit__submit_black {
-   background-color: rgba(0, 0, 1);
+.modal-edit__submit:hover {
+   opacity: 80%;
+}
+
+
+.modal-edit__submit_white {
+   background-color: rgba(196, 196, 196, 1);
 }
 
 
