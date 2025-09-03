@@ -150,10 +150,4 @@
       align-content: center;
       margin: 0 19px;
    }
-
-   .modal-edit__button-close {
-      position: fixed;
-      right: 19px;
-      margin-right: 5px;
-   }
 }
