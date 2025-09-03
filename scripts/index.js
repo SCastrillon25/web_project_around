@@ -1,5 +1,5 @@
 const buttonEdit = document.querySelector(".profile__edit-button");
-const containerModalEdit = document.querySelector(".modal-edit-container");
+const modalEdit = document.querySelector(".modal-edit");
 const formModalEdit = document.querySelector(".modal-edit__form");
 
 
@@ -12,7 +12,7 @@ const descriptionProfile = document.querySelector(".profile__description");
 
 
 function closeModal() {
-   containerModalEdit.classList.remove("modal-edit-open");
+   modalEdit.classList.remove("modal-edit-open");
 }
 
 function saveProfileSubmit(evt) {
@@ -25,7 +25,7 @@ function saveProfileSubmit(evt) {
 }
 
 function openModal() {
-   containerModalEdit.classList.add("modal-edit-open");
+   modalEdit.classList.add("modal-edit-open");
    nameInput.value = nameProfile.textContent;
    descriptionInput.value = descriptionProfile.textContent;
 }
