@@ -35,61 +35,30 @@
             </div>
          </header>
          <main class="main">
-            <section class="main__cards">
-               <div class="main__card">
-                  <img class="main__card-imge" src="./images/status of liberty.jpg" alt="status of liberty">
-                  <div class="main__card-description">
-                     <p class="main__card-text">Status of liberty</p>
-                     <img class="main__card-icon-like" src="./images/icon-like.svg" alt="like icon">
-                  </div>
-               </div>
-               <div class="main__card">
-                  <img class="main__card-imge" src="./images/monte rushmore.jpg" alt="monte rushmore">
-                  <div class="main__card-description">
-                     <p class="main__card-text">Monte Rushmore</p>
-                     <img class="main__card-icon-like" src="./images/icon-like.svg" alt="like icon">
-                  </div>
-               </div>
-                  <div class="main__card">
-                  <img class="main__card-imge" src="./images/library of columbia university.jpg" alt="library of columbia university">
-                  <div class="main__card-description">
-                     <p class="main__card-text">Library of Columbia University</p>
-                     <img class="main__card-icon-like" src="./images/icon-like.svg" alt="like icon">
-                  </div>
-               </div>
-               <div class="main__card">
-                  <img class="main__card-imge" src="./images/Golden  Gate.jpg" alt="Golden Gate">
-                  <div class="main__card-description">
-                     <p class="main__card-text">Golden  Gate</p>
-                     <img class="main__card-icon-like" src="./images/icon-like.svg" alt="like icon">
-                  </div>
-               </div>
-               <div class="main__card">
-                  <img class="main__card-imge" src="./images/Sequoia.jpg" alt="Sequoia">
-                  <div class="main__card-description">
-                     <p class="main__card-text">Sequoia</p>
-                     <img class="main__card-icon-like" src="./images/icon-like.svg" alt="like icon">
-                  </div>
-               </div>
-               <div class="main__card">
-                  <img class="main__card-imge" src="./images/Rocky Mountain National Park.jpg" alt="Rocky Mountain National Park">
-                  <div class="main__card-description">
-                     <p class="main__card-text">Rocky Mountain National Park</p>
-                     <img class="main__card-icon-like" src="./images/icon-like.svg" alt="like icon">
-                  </div>
-               </div>
-            </section>
+            <div class="cards-container">
+
+            </div>
          </main>
-         <footer class="footer">
-            <p class="footer__text">© 2025 Around The U.S.</p>
-         </footer>
-      </div>
+         <template id="card-template">
+            <div class="card">
+               <img class="card__imge" src="" alt="">
+               <div class="card__description">
+                  <p class="card__title"></p>
+                  <button class="card__button-like" type="button"></button>
+               </div>
+            </div>
+         </template>
+
       <script src="./scripts/index.js" defer></script>
    </body>
+   <footer class="footer">
+      <p class="footer__text">© 2025 Around The U.S.</p>
+   </footer>
    <div class="modal-edit">
-      <button type="button" class="modal-edit__button-close"></button>
+      <div class="modal">
+         <button type="button" class="modal-edit__button-close"></button>
       <div class="modal-edit__container">
-         <h4 class="modal-edit__title">Editar perfil</h4>
+         <h4 class="modal-edit__name">Editar perfil</h4>
          <form class="modal-edit__form">
             <input class="modal-edit__input modal-edit__input-name" type="text" placeholder="Nombre" required>
 
@@ -98,5 +67,26 @@
             <button class="modal-edit__submit submit" type="submit">Guardar</button>
          </form>
       </div>
+      </div>
+
    </div>
+
+   <div class="modal-place">
+      <div class="modal">
+         <button type="button" class="modal-place__button-close"></button>
+      <div class="modal-place__container">
+         <h4 class="modal-place__title">Nuevo lugar</h4>
+         <form class="modal-place__form">
+            <input class="modal-place__input modal-place__input-title" type="text" placeholder="Titulo" required>
+
+            <input class="modal-place__input modal-place__input-url" type="text" placeholder="Enlace a la imagen" required>
+
+            <button class="modal-place__submit submit" type="submit">crear</button>
+         </form>
+      </div>
+      </div>
+
+   </div>
+
+
 </html>

@@ -1,23 +1,23 @@
-.modal-edit {
+.modal-place {
    display: none;
 }
 
-.modal-edit-open {
+.modal-place-open {
    display: flex;
    position: absolute;
    top: 20%;
    left: 33%;
 }
 
-.modal {
-   position: fixed;
-   top: 19.5%;
-   left: 37%;
+.moda {
+   position: relative;
+   top: 25vh;
+   left: 25vw;
 }
 
-
-.modal-edit__container {
+.modal-place__container {
    width: 430px;
+   height: 330px;
    background-color: rgba(255, 255, 255, 1);
    border-radius: 10px;
    display: flex;
@@ -27,28 +27,27 @@
 
 }
 
-.modal-edit__button-close {
+
+.modal-place__button-close {
    width: 40px;
    height: 40px;
    background-color: rgba(0, 0, 0, 1);
    border: none;
-   right: calc((100vw - 430px - 70px)/2);
+   top: 155px;
    cursor: pointer;
    background-image: url(../images/Close-Icon.svg);
    background-size: cover;
    background-position: center;
    position: relative;
-   top: 0;
+   top: 0%;
    left: 100%;
-
-
 }
 
-.modal-edit__button-close:hover {
+.modal-place__button-close:hover {
    opacity: 60%;
 }
 
-.modal-edit__name {
+.modal-place__title {
    width: 330px;
    min-width: 238px;
    height: 23px;
@@ -60,7 +59,7 @@
    letter-spacing: 0%;
 }
 
-.modal-edit__form {
+.modal-place__form {
    width: 358px;
    display: flex;
    flex-direction: column;
@@ -68,7 +67,7 @@
    margin:54px 36px 0;
 }
 
-.modal-edit__input {
+.modal-place__input {
    height: 27px;
    width: 100%;
    border-bottom: 1px solid rgba(196, 196, 196, 1);
@@ -81,11 +80,11 @@
    font-size: 14px;
    line-height: 100%;
    letter-spacing: 0%;
-   color: rgba(196, 196, 196, 1);
+   color: rgba(196, 196, 196, 1)
 }
 
 
-.modal-edit__submit {
+.modal-place__submit {
    width: 358px;
    height: 50px;
    min-width: 238px;
@@ -103,18 +102,18 @@
    cursor: pointer;
 }
 
-.modal-edit__submit:hover {
+.modal-place__submit:hover {
    opacity: 80%;
 }
 
 
-.modal-edit__submit_white {
+.modal-place__submit_white {
    background-color: rgba(196, 196, 196, 1);
 }
 
 
 @media (max-width:619px) {
-   .modal-edit__container {
+   .modal-place__container {
       width: 282px;
       height: 322px;
       position: absolute;
@@ -123,30 +122,30 @@
 
    }
 
-   .modal-edit__button-close {
+   .modal-place__button-close {
       width: 26px;
       height: 26px;
       top: 72.62px;
       right: calc((100vw - 282px - 18.62px)/2);
    }
 
-   .modal-edit__title{
+   .modal-place__title{
       width: auto;
       margin: 25px 0 0 22px;
    }
-   .modal-edit__form {
+   .modal-place__form {
       width: 238px;
       height: 199px;
       margin:76px 22px 0;
    }
 
-   .modal-edit__input {
+   .modal-place__input {
       width: 238px;
       height: 26px;
       margin-bottom: 30px;
    }
 
-   .modal-edit__submit {
+   .modal-place__submit {
    width: 248px;
    height: 46px;
    margin:16px 0 25px 0;
@@ -154,7 +153,7 @@
 }
 
 @media (max-width:320px) {
-   .modal-edit__container {
+   .modal-place__container {
       display: flex;
       justify-content: center;
       align-content: center;
