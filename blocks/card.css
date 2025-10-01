@@ -45,7 +45,7 @@
  display: inline;
  position: absolute;
  right: 18px;
- background-image: url(/images/icon-like.svg);
+ background-image: url(../images/icon-like.svg);
  width: 21px;
  height: 18px;
  border: none;
@@ -61,7 +61,7 @@
    position: absolute;
    right: 18px;
    z-index: 5;
-   background-image: url(/images/icon-like-black.svg);
+   background-image: url(../images/icon-like-black.svg);
    width: 21px;
    height: 18px;
    border: none;
