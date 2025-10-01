@@ -11,6 +11,7 @@ La página web de TripleTen web_project_around es el septimo proyecto en el prog
 - @mediaQueries
 - Mdificacion del DOM
 - Eventos
+- Evento Apuntador toggle 
 
 # URL
 https://scastrillon25.github.io/web_project_around/
