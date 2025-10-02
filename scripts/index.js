@@ -25,6 +25,8 @@ const cardTemplate = document.querySelector("#card-template").content;
 const card = cardTemplate.querySelector(".card").cloneNode(true);
 const cardsContainer = document.querySelector(".cards-container");
 const likeButtonCard = card.querySelector(".card__button-like");
+const cardImage = card.querySelector(".card__imge");
+const closeModalImage = document.querySelector(".modal-image__button-close");
 
 const initialCards = [
   {
@@ -62,6 +64,7 @@ initialCards.forEach(function(item){
    const cardName = card.querySelector(".card__title");
    const cardImage = card.querySelector(".card__imge");
    const likeButtonCard = card.querySelector(".card__button-like");
+
    //actualizo
    cardImage.alt = item.name;
    cardImage.src = item.link;
@@ -72,6 +75,15 @@ initialCards.forEach(function(item){
    likeButtonCard.classList.toggle("card__button-like");
    evt.target.classList.toggle("card__button-like_active");
 });
+
+   //evento abrir imagen
+   cardImage.addEventListener("click", function () {
+      const modalOpenImage = document.querySelector(".modal-image");
+      const modalImageImg = document.querySelector(".modal-image__img");
+      modalImageImg.src = item.link;
+      modalImageImg.alt = item.name;
+      modalOpenImage.classList.add("modal-image-open");
+   });
    //inserto targeta al inicio del contenedor
    cardsContainer.prepend(card);
 });
@@ -135,6 +147,7 @@ function addPlace(evt) {
    likeButtonCard.addEventListener("click", function (evt) {
       likeButtonCard.classList.toggle("card__button-like");
       evt.target.classList.toggle("card__button-like_active");
+
    });
 
    //muestro targeta|
@@ -153,3 +166,13 @@ buttonCloseModalEdit.addEventListener("click", closeModalEdit);
 buttonAddPlace.addEventListener("click", openModalPlace);
 buttonCloseModalPlace.addEventListener("click", closeModalPlace);
 formModalPlace.addEventListener("submit", addPlace);
+
+closeModalImage.addEventListener("click", function() {
+   const modalOpenImage = document.querySelector(".modal-image");
+   modalOpenImage.classList.remove("modal-image-open");
+});
+
+
+
+
+
