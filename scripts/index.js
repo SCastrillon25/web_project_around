@@ -26,7 +26,7 @@ const card = cardTemplate.querySelector(".card").cloneNode(true);
 const cardsContainer = document.querySelector(".cards-container");
 const likeButtonCard = card.querySelector(".card__button-like");
 const cardImage = card.querySelector(".card__imge");
-const closeModalImage = document.querySelector(".modal-image__button-close");
+const buttonCloseModalImage = document.querySelector(".modal-image__button-close");
 
 const initialCards = [
   {
@@ -117,7 +117,7 @@ function saveProfileSubmit(evt) {
 // modal lugar cerrar y abrir
 function closeModalPlace() {
    modalPlace.classList.remove("modal-place-open");
-   modalPlace.removeEventListener(closeModalPlace);
+   modalPlace.target.removeEventListener("click", closeModalPlace);
 }
 
 function openModalPlace() {
@@ -176,6 +176,13 @@ function addPlace(evt) {
    formModalPlace.reset();
 };
 
+// modal cerrar imagen
+function closeModalImage() {
+   const modalOpenImage = document.querySelector(".modal-image");
+   modalOpenImage.classList.remove("modal-image-open");
+   buttonCloseModalImage.target.removeEventListener("click", closeModalImage);
+}
+
 // EventListeners
 buttonEdit.addEventListener("click", openModalEdit);
 formModalEdit.addEventListener("submit", saveProfileSubmit);
@@ -187,11 +194,7 @@ formModalPlace.addEventListener("submit", addPlace);
 
 
 //modal cerrar imagen
-closeModalImage.addEventListener("click", function() {
-   const modalOpenImage = document.querySelector(".modal-image");
-   modalOpenImage.classList.remove("modal-image-open");
-   modalOpenImage.removeEventListener(closeModalEdit);
-});
+buttonCloseModalImage.addEventListener("click", closeModalImage);
 
 
 
