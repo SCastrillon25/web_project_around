@@ -72,7 +72,6 @@ initialCards.forEach(function(item){
 
    //evento like
    likeButtonCard.addEventListener("click", function (evt) {
-   likeButtonCard.classList.toggle("card__button-like");
    evt.target.classList.toggle("card__button-like_active");
 });
 
@@ -80,6 +79,8 @@ initialCards.forEach(function(item){
    cardImage.addEventListener("click", function () {
       const modalOpenImage = document.querySelector(".modal-image");
       const modalImageImg = document.querySelector(".modal-image__img");
+      const modalImageTitle = document.querySelector(".modal-image__title");
+      modalImageTitle.textContent = item.name;
       modalImageImg.src = item.link;
       modalImageImg.alt = item.name;
       modalOpenImage.classList.add("modal-image-open");
@@ -150,6 +151,18 @@ function addPlace(evt) {
 
    });
 
+   //modal abrir imagen
+   imgeCard.addEventListener("click", function () {
+   const modalOpenImage = document.querySelector(".modal-image");
+   const modalImageImg = document.querySelector(".modal-image__img");
+   const modalImageTitle = document.querySelector(".modal-image__title");
+   modalImageTitle.textContent = title;
+   modalImageImg.src = url;
+   modalImageImg.alt = title;
+   modalOpenImage.classList.add("modal-image-open");
+});
+
+
    //muestro targeta|
    cardsContainer.prepend(card);
 
@@ -167,6 +180,8 @@ buttonAddPlace.addEventListener("click", openModalPlace);
 buttonCloseModalPlace.addEventListener("click", closeModalPlace);
 formModalPlace.addEventListener("submit", addPlace);
 
+
+//modal cerrar imagen
 closeModalImage.addEventListener("click", function() {
    const modalOpenImage = document.querySelector(".modal-image");
    modalOpenImage.classList.remove("modal-image-open");

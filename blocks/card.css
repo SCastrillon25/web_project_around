@@ -60,7 +60,6 @@
    display: inline;
    position: absolute;
    right: 18px;
-   z-index: 5;
    background-image: url(../images/icon-like-black.svg);
    width: 21px;
    height: 18px;
