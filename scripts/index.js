@@ -95,6 +95,7 @@ initialCards.forEach(function(item){
 // modal cerrar y abrir
 function closeModalEdit() {
    modalEdit.classList.remove("modal-edit-open");
+   modalEdit.removeEventListener("clik", closeModalEdit);
 }
 
 function openModalEdit() {
@@ -116,6 +117,7 @@ function saveProfileSubmit(evt) {
 // modal lugar cerrar y abrir
 function closeModalPlace() {
    modalPlace.classList.remove("modal-place-open");
+   modalPlace.removeEventListener(closeModalPlace);
 }
 
 function openModalPlace() {
@@ -152,7 +154,7 @@ function addPlace(evt) {
    });
 
    //modal abrir imagen
-   imgeCard.addEventListener("click", function () {
+   function openModalImage() {
    const modalOpenImage = document.querySelector(".modal-image");
    const modalImageImg = document.querySelector(".modal-image__img");
    const modalImageTitle = document.querySelector(".modal-image__title");
@@ -160,7 +162,10 @@ function addPlace(evt) {
    modalImageImg.src = url;
    modalImageImg.alt = title;
    modalOpenImage.classList.add("modal-image-open");
-});
+
+   }
+
+   imgeCard.addEventListener("click", openModalImage);
 
 
    //muestro targeta|
@@ -185,6 +190,7 @@ formModalPlace.addEventListener("submit", addPlace);
 closeModalImage.addEventListener("click", function() {
    const modalOpenImage = document.querySelector(".modal-image");
    modalOpenImage.classList.remove("modal-image-open");
+   modalOpenImage.removeEventListener(closeModalEdit);
 });
 
 
