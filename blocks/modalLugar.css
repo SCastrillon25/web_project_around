@@ -25,7 +25,7 @@
 
 .modal-place__container {
    width: 430px;
-   height: 330px;
+   height: auto;
    background-color: rgba(255, 255, 255, 1);
    border-radius: 10px;
    display: flex;
@@ -88,6 +88,10 @@
    line-height: 100%;
    letter-spacing: 0%;
    color: rgba(196, 196, 196, 1)
+}
+
+.modal-place__input-url {
+   margin-top: 9px;
 }
 
 

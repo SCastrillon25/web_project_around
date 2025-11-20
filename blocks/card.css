@@ -6,6 +6,17 @@
    position: relative;
 }
 
+.card__button-delete {
+   position: absolute;
+   top: 15px;
+   right: 15px;
+   width: 18px;
+   height: 19.3px;
+   background-color: transparent;
+   background-image: url(../images/Trash.svg);
+   border: none;
+   cursor: pointer;
+}
 
 .card__imge {
   width: 282px;

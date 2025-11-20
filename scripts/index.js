@@ -26,6 +26,7 @@ const card = cardTemplate.querySelector(".card").cloneNode(true);
 const cardsContainer = document.querySelector(".cards-container");
 const likeButtonCard = card.querySelector(".card__button-like");
 const cardImage = card.querySelector(".card__imge");
+const deleteButtonCard = card.querySelector(".card__button-delete");
 const buttonCloseModalImage = document.querySelector(".modal-image__button-close");
 
 const initialCards = [
@@ -64,16 +65,22 @@ initialCards.forEach(function(item){
    const cardName = card.querySelector(".card__title");
    const cardImage = card.querySelector(".card__imge");
    const likeButtonCard = card.querySelector(".card__button-like");
+   const deleteButtonCard = card.querySelector(".card__button-delete");
 
    //actualizo
    cardImage.alt = item.name;
    cardImage.src = item.link;
    cardName.textContent = item.name;
 
+   //evento eliminar tarjeta
+   deleteButtonCard.addEventListener("click", function () {
+      card.remove();
+   });
+
    //evento like
    likeButtonCard.addEventListener("click", function (evt) {
-   evt.target.classList.toggle("card__button-like_active");
-});
+      evt.target.classList.toggle("card__button-like_active");
+   });
 
    //evento abrir imagen
    cardImage.addEventListener("click", function () {
@@ -95,7 +102,7 @@ initialCards.forEach(function(item){
 // modal cerrar y abrir
 function closeModalEdit() {
    modalEdit.classList.remove("modal-edit-open");
-   modalEdit.removeEventListener("clik", closeModalEdit);
+   modalEdit.removeEventListener("click", closeModalEdit);
 }
 
 function openModalEdit() {
@@ -117,7 +124,7 @@ function saveProfileSubmit(evt) {
 // modal lugar cerrar y abrir
 function closeModalPlace() {
    modalPlace.classList.remove("modal-place-open");
-   modalPlace.target.removeEventListener("click", closeModalPlace);
+   modalPlace.removeEventListener("click", closeModalPlace);
 }
 
 function openModalPlace() {
@@ -141,6 +148,7 @@ function addPlace(evt) {
    let titleCard = card.querySelector(".card__title");
    let imgeCard = card.querySelector(".card__imge");
    let likeButtonCard = card.querySelector(".card__button-like");
+   let deleteButtonCard = card.querySelector(".card__button-delete");
 
    //actualizo
    titleCard.textContent = title;
@@ -153,6 +161,11 @@ function addPlace(evt) {
 
    });
 
+   //evento eliminar tarjeta
+   deleteButtonCard.addEventListener("click", function () {
+      card.remove();
+   });
+
    //modal abrir imagen
    function openModalImage() {
    const modalOpenImage = document.querySelector(".modal-image");
@@ -162,7 +175,6 @@ function addPlace(evt) {
    modalImageImg.src = url;
    modalImageImg.alt = title;
    modalOpenImage.classList.add("modal-image-open");
-
    }
 
    imgeCard.addEventListener("click", openModalImage);
@@ -180,7 +192,7 @@ function addPlace(evt) {
 function closeModalImage() {
    const modalOpenImage = document.querySelector(".modal-image");
    modalOpenImage.classList.remove("modal-image-open");
-   buttonCloseModalImage.target.removeEventListener("click", closeModalImage);
+   buttonCloseModalImage.removeEventListener("click", closeModalImage);
 }
 
 // EventListeners

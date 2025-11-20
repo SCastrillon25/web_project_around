@@ -25,8 +25,8 @@
                </div>
 
                <div class="profile__data">
-                  <h2 class="profile__name">Jacques Cousteau</h2>
-                  <h3 class="profile__description">Explorador</h3>
+                  <h2 class="profile__name">Sebastian</h2>
+                  <h3 class="profile__description">Programador</h3>
                   <div class="profile__container-button">
                      <button class="profile__edit-button" type="button"></button>
                   </div>
@@ -41,6 +41,7 @@
          </main>
          <template id="card-template">
             <div class="card">
+               <button class="card__button-delete" type="button"></button>
                <img class="card__imge" src="" alt="">
                <div class="card__description">
                   <p class="card__title"></p>
@@ -52,48 +53,65 @@
             <p class="footer__text">© 2025 Around The U.S.</p>
          </footer>
       </div>
-      <script src="./scripts/index.js" defer></script>
+
+      <div class="modal-edit">
+         <div class="modal">
+            <button type="button" class="modal-edit__button-close"></button>
+            <div class="modal-edit__container">
+               <h4 class="modal-edit__name">Editar perfil</h4>
+               <form class="form modal-edit__form">
+                  <fieldset class="form__set">
+                     <label class="form__field">
+                        <input type="text" class="form__input modal-edit__input modal-edit__input-name" id="name-input" placeholder="Nombre" minlength="2" maxlength="40" required>
+                        <span class="form__error name-input-error">Por favor, rellena este campo.</span>
+                     </label>
+                     
+                     <label class="form__field">
+                        <input type="text" class="form__input modal-edit__input modal-edit__input-description" id="description-input" placeholder="description" minlength="2" maxlength="200" required>
+                        <span class="form__error form__error-description description-input-error">Por favor, rellena este campo.</span>
+                     </label>
+                     
+                     <button class="form__input form__input-submit modal-edit__submit submit" type="submit">Guardar</button>
+                  </fieldset>                  
+               </form>
+            </div>
+         </div>
+      </div>
+
+      <div class="modal-place">
+         <div class="modal">
+            <button type="button" class="modal-place__button-close"></button>
+            <div class="modal-place__container">
+               <h4 class="modal-place__title">Nuevo lugar</h4>
+               <form class="form modal-place__form">
+                  <fieldset class="form__set">
+                     <label class="form__field">
+                        <input type="text" class="form__input modal-place__input modal-place__input-title" id="title-input" placeholder="Titulo" minlength="2" maxlength="30" required>
+                        <span class="form__error title-input-error">Por favor, rellena este campo.</span>
+                     </label>
+                      
+                     <label class="form__field">
+                        <input type="url" class="form__input modal-place__input modal-place__input-url" id="url-input"  placeholder="Enlace a la imagen" required>
+                        <span class="form__error url-input-error">Por favor, rellena este campo.</span>
+                     </label>
+                     
+                     <button class="form__input form__input-submit modal-place__submit submit" type="submit">crear</button>
+
+                  </fieldset>  
+               </form>
+            </div>
+         </div>
+      </div>
+
+      <div class="modal-image">
+         <div class="modal-image__container">
+            <button type="button" class="modal-image__button-close"></button>
+            <img class="modal-image__img" src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg" alt="">
+            <p class="modal-image__title"></p>
+         </div>
+      </div>      
+
+      <script src="./scripts/index.js"></script>
+      <script src="./scripts/validation.js"></script>
    </body>
-
-
-
-   <div class="modal-edit">
-      <div class="modal">
-         <button type="button" class="modal-edit__button-close"></button>
-      <div class="modal-edit__container">
-         <h4 class="modal-edit__name">Editar perfil</h4>
-         <form class="modal-edit__form">
-            <input class="modal-edit__input modal-edit__input-name" type="text" placeholder="Nombre" required>
-
-            <input class="modal-edit__input modal-edit__input-description" type="text" placeholder="Acerca de mi" required>
-
-            <button class="modal-edit__submit submit" type="submit">Guardar</button>
-         </form>
-      </div>
-      </div>
-
-   </div>
-
-   <div class="modal-place">
-      <div class="modal">
-         <button type="button" class="modal-place__button-close"></button>
-      <div class="modal-place__container">
-         <h4 class="modal-place__title">Nuevo lugar</h4>
-         <form class="modal-place__form">
-            <input class="modal-place__input modal-place__input-title" type="text" placeholder="Titulo" required>
-
-            <input class="modal-place__input modal-place__input-url" type="text" placeholder="Enlace a la imagen" required>
-
-            <button class="modal-place__submit submit" type="submit">crear</button>
-         </form>
-      </div>
-      </div>
-   </div>
-   <div class="modal-image">
-      <div class="modal-image__container">
-         <button type="button" class="modal-image__button-close"></button>
-         <img class="modal-image__img" src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg" alt="">
-         <p class="modal-image__title"></p>
-      </div>
-   </div>
 </html>
