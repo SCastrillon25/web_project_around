@@ -1,0 +1,14 @@
+.page {
+   max-width: 1280px;
+   min-width: 320px;
+   margin: 0 auto;
+   background-color: rgba(0, 0, 0, 1);
+   padding-top:45px;
+   position: relative;
+}
+
+@media (max-width:619px) {
+   .page {
+      padding-top: 28px;
+   }
+}

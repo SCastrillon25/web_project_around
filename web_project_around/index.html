@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content='Una recopilacion de diferentes paisages de EE.UU.'>
+      <meta name="keywords" content="Aroud, The U.S">
+      <meta name="author" content="Github: @SCastrillon25 Sebastian Castrillon Osorio.">
+      <link rel="stylesheet" href="./vendor/normalize.css">
+      <link rel="stylesheet" href="./pages/index.css">
+      <link rel="shortcut icon" href="./images/icon-page.svg">
+      <title>Alrededor de los EE.UU.</title>
+   </head>
+   <body>
+      <div class="page">
+         <header class="header">
+            <div class="header__container">
+               <div class="header__container-icon">
+                  <img class="header__icon" src="./images/icon-page.svg" alt="icon like">
+               </div>
+            </div>
+            <div class="profile">
+               <div class="profile__container-image">
+                  <img class="profile__image" src="./images/profile-img.jpg" alt="image of profile">
+               </div>
+
+               <div class="profile__data">
+                  <h2 class="profile__name">Sebastian</h2>
+                  <h3 class="profile__description">Programador</h3>
+                  <div class="profile__container-button">
+                     <button class="profile__edit-button" type="button"></button>
+                  </div>
+               </div>
+               <button class="profile__button-add" type="button"></button>
+            </div>
+         </header>
+         <main class="main">
+            <div class="cards-container">
+
+            </div>
+         </main>
+         <template id="card-template">
+            <div class="card">
+               <button class="card__button-delete" type="button"></button>
+               <img class="card__image" src="" alt="">
+               <div class="card__description">
+                  <p class="card__title"></p>
+                  <button class="card__button-like" type="button"></button>
+               </div>
+            </div>
+         </template>
+         <footer class="footer">
+            <p class="footer__text">© 2025 Around The U.S.</p>
+         </footer>
+      </div>
+
+      <div class="modal-edit">
+         <div class="modal">
+            <button type="button" class="modal-edit__button-close modal__button-close"></button>
+            <div class="modal-edit__container">
+               <h4 class="modal-edit__name">Editar perfil</h4>
+               <form class="form modal-edit__form">
+                  <fieldset class="form__set">
+                     <label class="form__field">
+                        <input type="text" name="name" class="form__input modal-edit__input modal-edit__input-name" id="name-input" placeholder="Nombre" minlength="2" maxlength="40" required>
+                        <span class="form__error name-input-error">Por favor, rellena este campo.</span>
+                     </label>
+                     
+                     <label class="form__field">
+                        <input type="text" name="description" class="form__input modal-edit__input modal-edit__input-description" id="description-input" placeholder="description" minlength="2" maxlength="200" required>
+                        <span class="form__error form__error-description description-input-error">Por favor, rellena este campo.</span>
+                     </label>
+                     
+                     <button class="form__input form__input-submit modal-edit__submit submit" type="submit">Guardar</button>
+                  </fieldset>                  
+               </form>
+            </div>
+         </div>
+      </div>
+
+      <div class="modal-place">
+         <div class="modal">
+            <button type="button" class="modal-place__button-close modal__button-close"></button>
+            <div class="modal-place__container">
+               <h4 class="modal-place__title">Nuevo lugar</h4>
+               <form class="form modal-place__form">
+                  <fieldset class="form__set">
+                     <label class="form__field">
+                        <input type="text" name="title" class="form__input modal-place__input modal-place__input-title" id="title-input" placeholder="Titulo" minlength="2" maxlength="30" required>
+                        <span class="form__error title-input-error">Por favor, rellena este campo.</span>
+                     </label>
+                      
+                     <label class="form__field">
+                        <input type="url" name="url" class="form__input modal-place__input modal-place__input-url" id="url-input"  placeholder="Enlace a la imagen" required>
+                        <span class="form__error url-input-error">Por favor, rellena este campo.</span>
+                     </label>
+                     
+                     <button class="form__input form__input-submit modal-place__submit submit" type="submit">crear</button>
+
+                  </fieldset>  
+               </form>
+            </div>
+         </div>
+      </div>
+
+      <div class="modal-image">
+         <div class="modal-image__container">
+            <button type="button" class="modal-image__button-close modal__button-close"></button>
+            <img class="modal-image__image" src="https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg" alt="">
+            <p class="modal-image__title"></p>
+         </div>
+      </div>      
+
+      <script type="module" src="./scripts/index.js"></script>
+   </body>
+</html>

@@ -1,0 +1,8 @@
+.container {
+   max-width: 880px;
+}
+
+.container__title {
+   width: 173px;
+   height: 33px;
+}
