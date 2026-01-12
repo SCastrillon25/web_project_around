@@ -1,4 +1,4 @@
-# Proyecto 7 al 10: Tripleten web_project_around
+# Proyecto 7 al 11: Tripleten web_project_around
 La página web de TripleTen web_project_around es el septimo proyecto en el programa de Desarrollo web de TripleTen. Fue creado utilizando HTML, CSS y JavaScript, como primer acercamiento y practica de aprendizaje del lenguaje JavaScript.
 
 ## Características del proyecto
@@ -15,6 +15,7 @@ La página web de TripleTen web_project_around es el septimo proyecto en el prog
 - Validacion de Formularios
 - POO
 - Clases
+- Estructurade archivos
 
 # URL
 https://scastrillon25.github.io/web_project_around/
