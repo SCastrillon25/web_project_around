@@ -1,7 +1,3 @@
-
-// Importaciones
-import { Popup } from "../components/Popup.js";
-
 // Variables y constantes
 const modalOpenImage = document.querySelector(".modal-image");
 const modalImageImage = modalOpenImage.querySelector(".modal-image__image");

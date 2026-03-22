@@ -1,6 +1,7 @@
 .main {
    margin-top: 50px;
    padding: 0 19px;
+   font-size: "Inter", sans-serif;;
 }
 
 @media (max-width:619px) {

@@ -4,7 +4,7 @@
    margin: 0 auto;
    background-color: rgba(0, 0, 0, 1);
    padding-top:45px;
-   position: relative;
+   position: relative;   
 }
 
 @media (max-width:619px) {
