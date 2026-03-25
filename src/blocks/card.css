@@ -13,7 +13,7 @@
    width: 18px;
    height: 19.3px;
    background-color: transparent;
-   background-image: url(../images/Trash.svg);
+   background-image: url(../../images/Delete-Icon.png);
    border: none;
    cursor: pointer;
 }
@@ -58,7 +58,7 @@
  display: inline;
  position: absolute;
  right: 18px;
- background-image: url(../images/icon-like.svg);
+ background-image: url(../../images/icon-like.svg);
  width: 21px;
  height: 18px;
  border: none;
@@ -73,7 +73,7 @@
    display: inline;
    position: absolute;
    right: 18px;
-   background-image: url(../images/icon-like-black.svg);
+   background-image: url(../../images/icon-like-black.svg);
    width: 21px;
    height: 18px;
    border: none;

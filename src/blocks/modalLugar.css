@@ -42,7 +42,7 @@
    border: none;
    top: 155px;
    cursor: pointer;
-   background-image: url(../images/Close-Icon.svg);
+   background-image: url(../../images/Close-Icon.svg);
    background-size: cover;
    background-position: center;
    position: relative;

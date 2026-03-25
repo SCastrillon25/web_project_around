@@ -41,7 +41,7 @@
    border: none;
    right: calc((100vw - 430px - 70px)/2);
    cursor: pointer;
-   background-image: url(../images/Close-Icon.svg);
+   background-image: url(../../images/Close-Icon.svg);
    background-size: cover;
    background-position: center;
    position: relative;

@@ -1,7 +1,10 @@
+import { Api } from "./API.js";
+
 export class Card {
   constructor(data, templateSelector, handleOpenImage) {
     this._title = data.name;
     this._link = data.link;
+    this._isLiked = data.isLiked;
     this._templateSelector = templateSelector;
     this._handleOpenImage = handleOpenImage;
   }
@@ -18,8 +21,26 @@ export class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-      this._likeButton.classList.toggle("card__button-like_active");
+      this._isLiked = !this._isLiked;
+      if (this._isLiked) {
+        this._likeButton.classList.add("card__button-like_active");
+      } else {
+        this._likeButton.classList.remove("card__button-like_active");
+      }
+
+      // const data = {
+      //   isLiked: this._isLiked
+      // };
+      
+      // const Card = new Api(`https://around-api.es.tripleten-services.com/v1/`);
+      // const idCard = Card.getId();
+
+
+      // const apiIsLiked = new Api( `https://around-api.es.tripleten-services.com/v1/cards/`);
+      // apiIsLiked.cardIsLiked(this._id, data);
+
     });
+    
 
     this._deleteButton.addEventListener("click", () => {
       this._element.remove();
@@ -43,6 +64,10 @@ export class Card {
     this._titleElement.textContent = this._title;
 
     this._setEventListeners();
+
+    if (this._isLiked) {
+      this._likeButton.classList.add("card__button-like_active");
+    }
 
     return this._element;
   }

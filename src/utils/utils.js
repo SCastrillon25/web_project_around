@@ -4,7 +4,7 @@ const modalImageImage = modalOpenImage.querySelector(".modal-image__image");
 const modalImageTitle = modalOpenImage.querySelector(".modal-image__title");
 //constantes y variables del modal editar perfil
 export const buttonEdit = document.querySelector(".profile__edit-button");
-const formModalEdit = document.querySelector(".modal-edit__form");
+export const formModalEdit = document.querySelector(".modal-edit__form");
 const buttonCloseModalEdit = document.querySelector(".modal-edit__button-close");
 const modalEdit = document.querySelector(".modal-edit");
 const nameInput = document.querySelector(".modal-edit__input-name");

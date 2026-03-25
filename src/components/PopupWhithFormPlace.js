@@ -5,7 +5,7 @@ import { Api } from "./API.js";
 
 const avatar = document.querySelector(".profile__image");
 
-export class PopupWithForm extends Popup {
+export class PopupWithFormPlace extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
@@ -31,17 +31,16 @@ export class PopupWithForm extends Popup {
     this._form.addEventListener("submit", evt => {
       evt.preventDefault();
 
-      const nameData = document.querySelector(".modal-edit__input-name");
-      const descriptionData = document.querySelector(".modal-edit__input-description"); 
+      const namePlace = document.querySelector(".modal-place__input-title");
+      const linkImagePlace = document.querySelector(".modal-place__input-url"); 
 
       const data = {
-        name: nameData.value,
-        about: descriptionData.value
+        name: namePlace.value,
+        link: linkImagePlace.value
       };      
       
-      const newDataUser = new Api("https://around-api.es.tripleten-services.com/v1/users/me");
-
-      newDataUser.postOrPatch(data, "PATCH");
+      const newDataCard = new Api("https://around-api.es.tripleten-services.com/v1/cards/");
+      newDataCard.postOrPatch(data, "POST");
 
       const inputValues = this.getInputValues();
       this._handleFormSubmit(inputValues);
@@ -50,6 +49,3 @@ export class PopupWithForm extends Popup {
     });
   };
 }
-
-
-
