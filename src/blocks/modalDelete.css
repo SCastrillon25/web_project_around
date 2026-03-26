@@ -1,0 +1,56 @@
+.modal-delete-card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 1;
+}
+
+.modal-delete_active {
+    display: flex;
+}
+
+
+.modal-delete__container {
+   position: fixed;
+   top: 270px;
+   width: 430px;
+   height: 181px;
+   border-radius: 10px;
+   background-color: rgba(255, 255, 255, 1);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   z-index: 1000;
+}
+
+.modal-delete__title {
+    width: 358px;
+    height: 23px;
+    font-size: 24px;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 1);
+    margin: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.modal-delete__submit {
+    width: 358px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Inter", sans-serif;
+    border-radius: 2px;
+    cursor: pointer;
+    margin-top: 38px;
+}   

@@ -1,4 +1,6 @@
 import { Api } from "./API.js";
+import { Section } from "./Section.js";
+import {  } from "./Popup.js";
 
 export class Card {
   constructor(data, templateSelector, handleOpenImage) {
@@ -7,6 +9,7 @@ export class Card {
     this._isLiked = data.isLiked;
     this._templateSelector = templateSelector;
     this._handleOpenImage = handleOpenImage;
+    this._id = data._id;
   }
 
   _getTemplate() {
@@ -22,28 +25,25 @@ export class Card {
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
       this._isLiked = !this._isLiked;
-      if (this._isLiked) {
-        this._likeButton.classList.add("card__button-like_active");
-      } else {
-        this._likeButton.classList.remove("card__button-like_active");
-      }
+      this._isLiked ? this._likeButton.classList.toggle("card__button-like_active") : this._likeButton.classList.toggle("card__button-like_active");
 
-      // const data = {
-      //   isLiked: this._isLiked
-      // };
       
-      // const Card = new Api(`https://around-api.es.tripleten-services.com/v1/`);
-      // const idCard = Card.getId();
-
-
-      // const apiIsLiked = new Api( `https://around-api.es.tripleten-services.com/v1/cards/`);
-      // apiIsLiked.cardIsLiked(this._id, data);
-
+      const isLikedCard = new Api(`https://around-api.es.tripleten-services.com/v1/`);
+      isLikedCard.likeCard(this._id, this._isLiked);
+      console.log(this._id);
     });
     
 
     this._deleteButton.addEventListener("click", () => {
+      const deleteCard = new Api(`https://around-api.es.tripleten-services.com/v1/`);
+      deleteCard.cardDelete(this._id);
+
       this._element.remove();
+      
+      const requestNewCards = new Api("https://around-api.es.tripleten-services.com/v1/cards/");
+      requestNewCards.get();
+
+
     });
 
     this._imageElement.addEventListener("click", () => {

@@ -1,6 +1,5 @@
 // Importaciones
-import { Card } from "../components/Card.js";
-import { initialCards } from "../utils/constants.js";
+import { Card } from "../components/card.js";
 import { Section } from "../components/Section.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
@@ -13,6 +12,7 @@ import "../components/FormValidation.js";
 // solicitud de las tarjetas a la API y renderizado de las mismas en la página
 const apiCards = new Api("https://around-api.es.tripleten-services.com/v1/cards/")
 const arrayCards = await apiCards.get();
+
 
 const cardSection = new Section({
   items: arrayCards,
@@ -50,6 +50,17 @@ const userInfo = new UserInfo({
 });
 
 
+//Solicitud de datos del usuario a la API y actualización de la información en la página
+const apiDdataUser = new Api("https://around-api.es.tripleten-services.com/v1/users/me");
+const dataUser = await apiDdataUser.get();
+
+const nameUser = dataUser.name;
+const jobUser = dataUser.about;
+const avatarUser = dataUser.avatar;
+userInfo.setUserInfo({ name: nameUser, job: jobUser });
+userInfo.setUserAvatar(avatarUser);
+
+
 
 const imagePopup = new PopupWithImage(".modal-image");
 imagePopup.setEventListeners();
@@ -65,6 +76,7 @@ const addCardPopup = new PopupWithFormPlace(".modal-place", data => {
   const card = new Card({
     name: data.title,
     link: data.url,
+    _id: data._id
   }, "#card-template", (name, link) => {
     imagePopup.openPopup(name, link);
   });
@@ -91,33 +103,11 @@ addButton.addEventListener("click", () => {
   addCardPopup.openPopup();
 });
 
+const avatarImage = document.querySelector(".profile__image");
+avatarImage.addEventListener("mouseover", () => {
 
-//Solicitud de datos del usuario a la API y actualización de la información en la página
-const apiDdataUser = new Api("https://around-api.es.tripleten-services.com/v1/users/me");
-const dataUser = await apiDdataUser.get();
+});
 
-const nameUser = dataUser.name;
-const jobUser = dataUser.about;
-const avatarUser = dataUser.avatar;
-userInfo.setUserInfo({ name: nameUser, job: jobUser });
-userInfo.setUserAvatar(avatarUser);
-
-// solicitud de las tarjetas a la API y renderizado de las mismas en la página
-// const apiCards = new Api("https://around-api.es.tripleten-services.com/v1/cards/");
-// const arrayCards = await apiCards.postOrPatch();
-
-// arrayCards.forEach(card => {
-//   const cardElement = new Card({
-//     name: card.name,
-//     link: card.link,
-//     isLiked: card.isLiked,
-//   }, "#card-template", (name, link) => {
-//     imagePopup.openPopup(name, link);
-//   });
-//   cardSection.addItem(cardElement.generateCard());
-// });
-
-//solicitu PATCH para actualizar la información del usuario en la API
 
 
 
