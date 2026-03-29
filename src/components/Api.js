@@ -6,10 +6,9 @@ class Api {
             'Content-Type': 'application/json'
         };
     }
-    
 
-    get() {
-        return fetch(this.URL, {
+    getDataUser() {
+        return fetch(`${this.URL}/users/me`, {
             method: "GET",
             headers: this.headers
         })
@@ -24,29 +23,54 @@ class Api {
             }
         })
         .then(data => {
-            console.log(data);
+            console.log("CArgando datos");
             return data;
         })
             
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            return  Promise.reject(error);            
+        });
+    }
+
+    getCards() {
+        return fetch(`${this.URL}/cards/`, {
+            method: "GET",
+            headers: this.headers
+        })
+            
+        .then(res => {
+            if (res.ok) {
+                return (  
+                    console.log(res.status),
+                    res.json());                   
+            } else {
+                return Promise.reject(`Error: ${res.status}`);
+            }
+        })
+        .then(data => {
+            console.log("Cargando Cars")
+            console.log(data);
+            return data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            return  Promise.reject(error);            
+        });
     }
 
     createCard(data) {
-        return fetch(`${this.URL}cards/`, {
+        return fetch(`${this.URL}/cards/`, {
             method: "POST",
             headers: this.headers,
             body: JSON.stringify({
                 name: data.name,
-                link: data.link
+                link: data.link,
             })
         })
         
         .then(res => {
-            if (res.ok) {
-                return res.json();  
-            } else {
-                return Promise.reject(`Error: ${res.status}`);
-            }
+            return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
         })
     }
 
@@ -58,48 +82,53 @@ class Api {
         })
 
         .then(res => {
-            if (res.ok) {
-                return res.json();  
-            } else {
-                return Promise.reject(`Error: ${res.status}`);
-            }
+            return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
         })
         .then(data => {
+            console.log("procezando")
             console.log(data);
             return data;
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            return  Promise.reject(error);            
+        });
     }
 
     likeCard(idCard, isLiked) {
-        return fetch(`${this.URL}cards/${idCard}/likes/`, {
+        return fetch(`${this.URL}/cards/${idCard}/likes/`, {
             method: isLiked ? "PUT" : "DELETE",
             headers: this.headers
         })
         .then(res => {
-            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+            return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
         })
         .then(data => {
+            console.log(data);
             return data;
+            
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error)
+            return  Promise.reject(error);
+        });
     }
     
 
     cardDelete(idCard) {
-        return fetch(`${this.URL}cards/${idCard}/`, {
+        return fetch(`${this.URL}/cards/${idCard}/`, {
             method: "DELETE",
             headers: this.headers
         })
         .then(res => {
-            return( res.ok ? res.json() : Promise.reject(`Error: ${res.status}`));          
+            return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
         })
         .then(data => {
+            console.log("Borrando targeta")
             return data;
         })
         .catch(error => console.error('Error:', error));
     }
 
 }
-
 export { Api };

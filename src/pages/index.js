@@ -4,44 +4,41 @@ import { Section } from "../components/Section.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
-import { PopupWithFormPlace } from "../components/PopupWhithFormPlace.js";
+import { PopupWithFormPlace } from "../components/PopupWithFormPlace.js";
+import { PopupDeleteCardConfirmate } from "../components/PopupDeleteCardConfirmate.js";
 import { Api } from "../components/API.js";
 import "../components/FormValidation.js";
 
 
-// solicitud de las tarjetas a la API y renderizado de las mismas en la página
-const apiCards = new Api("https://around-api.es.tripleten-services.com/v1/cards/")
-const arrayCards = await apiCards.get();
+const api = new Api("https://around-api.es.tripleten-services.com/v1");
+
+const cardsReverse = await api.getCards();
+const cards = cardsReverse.reverse();
+
+const confirmatePopup = new PopupDeleteCardConfirmate(
+  ".modal-delete-card",
+  (cardId) => api.cardDelete(cardId)  
+);
+confirmatePopup.setEventListeners();
+
+const imagePopup = new PopupWithImage(".modal-image");
+imagePopup.setEventListeners();
 
 
 const cardSection = new Section({
-  items: arrayCards,
+  items: cards,
   renderer: item => {
-    const card = new Card(item, "#card-template", (name, link) => {      
+    const card = new Card(
+      item,
+      "#card-template", 
+      (name, link) => {      
       imagePopup.openPopup(name, link);
-    });
+    }, confirmatePopup, api);
 
     cardSection.addItem(card.generateCard());
   }
 }, ".cards-container");
 cardSection.renderItems();
-
-
-
-// const cardSectionWithInitialCards = new Section({
-//   items: initialCards,
-//   renderer: item => {
-//     const card = new Card(item, "#card-template", (name, link) => {
-      
-//       imagePopup.openPopup(name, link);
-//     });
-//     cardSection.addItem(card.generateCard());
-//   }
-// }, ".cards-container");
-
-// cardSectionWithInitialCards.renderItems();
-
-
 
 
 const userInfo = new UserInfo({
@@ -51,8 +48,7 @@ const userInfo = new UserInfo({
 
 
 //Solicitud de datos del usuario a la API y actualización de la información en la página
-const apiDdataUser = new Api("https://around-api.es.tripleten-services.com/v1/users/me");
-const dataUser = await apiDdataUser.get();
+const dataUser = await api.getDataUser();
 
 const nameUser = dataUser.name;
 const jobUser = dataUser.about;
@@ -61,10 +57,6 @@ userInfo.setUserInfo({ name: nameUser, job: jobUser });
 userInfo.setUserAvatar(avatarUser);
 
 
-
-const imagePopup = new PopupWithImage(".modal-image");
-imagePopup.setEventListeners();
-
 const profilePopup = new PopupWithForm(".modal-edit", data => {
   userInfo.setUserInfo({ name: data.name, job: data.description });
 });
@@ -72,18 +64,36 @@ profilePopup.setEventListeners();
 
 
 
+
+
 const addCardPopup = new PopupWithFormPlace(".modal-place", data => {
-  const card = new Card({
+  const button = document.querySelector(".modal-place__submit");
+  button.disabled = true;
+  api.createCard({
     name: data.title,
     link: data.url,
     _id: data._id
-  }, "#card-template", (name, link) => {
-    imagePopup.openPopup(name, link);
+  })  
+  .then(res => {
+    const card = new Card(
+      res,
+      "#card-template", 
+      (name, link) => {
+        imagePopup.openPopup(name, link);
+      }, 
+      confirmatePopup, 
+      api
+    );
+    cardSection.addItem(card.generateCard());
+  })
+  .catch(err => console.log(err))
+  .finally(() => {
+    button.disabled = false;
   });
-
-  cardSection.addItem(card.generateCard());
 });
 addCardPopup.setEventListeners();
+
+
 
 
 const editButton = document.querySelector(".profile__edit-button");
@@ -103,14 +113,16 @@ addButton.addEventListener("click", () => {
   addCardPopup.openPopup();
 });
 
-const avatarImage = document.querySelector(".profile__image");
+const avatarImage = document.querySelector(".profile__container-image");
 avatarImage.addEventListener("mouseover", () => {
-
+ const hoverAvatar = document.querySelector(".profile__container-image__hover");
+ hoverAvatar.classList.remove("profile__container-image__hover-active");
 });
 
-
-
-
+avatarImage.addEventListener("mouseout", () => {
+ const hoverAvatar = document.querySelector(".profile__container-image__hover");
+ hoverAvatar.classList.add("profile__container-image__hover-active");
+});
 
 
 

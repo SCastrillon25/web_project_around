@@ -37,10 +37,7 @@ export class PopupWithFormPlace extends Popup {
       const data = {
         name: namePlace.value,
         link: linkImagePlace.value
-      };      
-      
-      const newDataCard = new Api("https://around-api.es.tripleten-services.com/v1/cards/");
-      newDataCard.postOrPatch(data, "POST");
+      };
 
       const inputValues = this.getInputValues();
       this._handleFormSubmit(inputValues);

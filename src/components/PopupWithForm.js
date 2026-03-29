@@ -40,7 +40,6 @@ export class PopupWithForm extends Popup {
       };      
       
       const newDataUser = new Api("https://around-api.es.tripleten-services.com/v1/users/me");
-
       newDataUser.postOrPatch(data, "PATCH");
 
       const inputValues = this.getInputValues();

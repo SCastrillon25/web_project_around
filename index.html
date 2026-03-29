@@ -22,12 +22,10 @@
                </div>
             </div>
             <div class="profile">
-               <div class="profile__hover-image modal.hover-image_active">
-                  <div class="Profile__hover-image__container">
-                     <button type="button" class="profile__hover-image__button"></button>
-                  </div>
-               </div>
                <div class="profile__container-image">
+                  <div class="profile__container-image__hover profile__container-image__hover-active">
+                     <button type="button" class="profile__container-image__hover__button"></button> 
+                  </div>
                   <img class="profile__image" src="./images/profile-img.jpg" alt="image of profile">
                </div>
 
@@ -112,11 +110,12 @@
          </div>
       </div>
 
-      <div class ="modal-delete-card modal-delete-_active">
+      <div class ="modal-delete-card">
          <div class="modal">
+            <button type="button" class="modal-delete__button-close modal__button-close"></button>
             <div class="modal-delete__container">
                <h4 class="modal-delete__title">¿Estás seguro?</h4>
-                  <button class="modal-delete__submit modal-delete__submit_yes submit" type="submit">Sí</button>
+                  <button class="modal-delete__submit" type="submit">Sí</button>
             </div>
          </div>
       </div>
