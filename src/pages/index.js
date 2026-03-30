@@ -8,6 +8,9 @@ import { PopupWithFormPlace } from "../components/PopupWithFormPlace.js";
 import { PopupDeleteCardConfirmate } from "../components/PopupDeleteCardConfirmate.js";
 import { Api } from "../components/API.js";
 import "../components/FormValidation.js";
+import { PopupNewAvatar } from "../components/PopupNewAvatar.js";
+
+const inputNewAvatar = document.querySelector(".modal-newAvatar__input");
 
 
 const api = new Api("https://around-api.es.tripleten-services.com/v1");
@@ -96,6 +99,25 @@ addCardPopup.setEventListeners();
 
 
 
+
+// const newLink = inputNewAvatar.value;
+const avatarPopup = new PopupNewAvatar(".modal-newAvatar",
+  (newLink) => {
+    console.log("data " + newLink)
+    api.newAvatar(newLink)
+    .then(res => {
+      console.log(res);
+        userInfo.setUserAvatar(res.avatar);
+        avatarPopup.closePopup();
+    })
+    .catch(err => console.log(err));
+
+
+    
+});
+console.log(avatarPopup);
+avatarPopup.setEventListeners();
+
 const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__button-add");
 
@@ -124,6 +146,12 @@ avatarImage.addEventListener("mouseout", () => {
  hoverAvatar.classList.add("profile__container-image__hover-active");
 });
 
+
+
+const avatarButton = document.querySelector(".profile__container-image_hover-button");
+avatarButton.addEventListener("click", () => {
+  avatarPopup.openPopup();
+});
 
 
 

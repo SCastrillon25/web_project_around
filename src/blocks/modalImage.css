@@ -1,4 +1,8 @@
 .modal-image {
+   display: none;
+}
+
+.modal-open {
    width: 100vw;
    min-width: 320px;
    height: 100%;
@@ -8,10 +12,6 @@
    background-color: rgba(1, 1, 1, 0.5);
    position: fixed;
    top: 0;
-}
-
-.modal-open {
-   display: flex;
 }
 
 .modal-image__container {

@@ -130,5 +130,27 @@ class Api {
         .catch(error => console.error('Error:', error));
     }
 
+    newAvatar(data) {
+        return fetch(`${this.URL}/users/me/avatar`, {
+            method: "PATCH",
+            headers: this.headers,
+            body: JSON.stringify({
+                avatar: data.avatar    
+            })
+        })
+        .then(res => {
+            return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+        })
+        .then(data => {
+            console.log("procezando")
+            console.log(data);
+            return data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            return  Promise.reject(error);            
+        });
+    }
+
 }
 export { Api };
