@@ -6,7 +6,7 @@ import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithFormPlace } from "../components/PopupWithFormPlace.js";
 import { PopupDeleteCardConfirmate } from "../components/PopupDeleteCardConfirmate.js";
-import { Api } from "../components/API.js";
+import { Api } from "../components/Api.js";
 import "../components/FormValidation.js";
 import { PopupNewAvatar } from "../components/PopupNewAvatar.js";
 
@@ -61,7 +61,26 @@ userInfo.setUserAvatar(avatarUser);
 
 
 const profilePopup = new PopupWithForm(".modal-edit", data => {
-  userInfo.setUserInfo({ name: data.name, job: data.description });
+  profilePopup._setLoading(true); // 🔥 activa "Guardando..."
+
+  api.postOrPatch({
+    name: data.name,
+    about: data.description
+  }, "PATCH")
+  .then(res => {
+    userInfo.setUserInfo({
+      name: res.name,
+      job: res.about
+    });
+    setTimeout(() => {
+      profilePopup.closePopup()
+    },1000)
+    
+  })
+  .catch(err => console.log(err))
+  .finally(() => {
+    profilePopup._setLoading(false); // 🔥 vuelve a "Guardar"
+  })
 });
 profilePopup.setEventListeners();
 
@@ -101,21 +120,21 @@ addCardPopup.setEventListeners();
 
 
 // const newLink = inputNewAvatar.value;
-const avatarPopup = new PopupNewAvatar(".modal-newAvatar",
-  (newLink) => {
-    console.log("data " + newLink)
+const avatarPopup = new PopupNewAvatar(".modal-newAvatar", (newLink) => {
+    avatarPopup._setLoading(true);
+
     api.newAvatar(newLink)
     .then(res => {
-      console.log(res);
         userInfo.setUserAvatar(res.avatar);
-        avatarPopup.closePopup();
+        setTimeout(() => {
+          avatarPopup.closePopup()
+        },1000)
     })
-    .catch(err => console.log(err));
-
-
-    
+    .catch(err => console.log(err))
+    .finally(() => {
+      avatarPopup._setLoading(false); // 🔥 vuelve a "Guardar"
+    })
 });
-console.log(avatarPopup);
 avatarPopup.setEventListeners();
 
 const editButton = document.querySelector(".profile__edit-button");

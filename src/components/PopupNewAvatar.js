@@ -6,6 +6,12 @@ class PopupNewAvatar extends Popup {
     this._handleNewImage = handleNewImage;
     this._form = this._popup.querySelector(".form");
     this._input = this._popup.querySelector(".modal-newAvatar__input");
+    this._submitButton = this._form.querySelector(".modal-newAvatar__submit")
+  }
+
+  closePopup() {
+    super.closePopup();
+    this._form.reset();
   }
 
   getInputValue() {
@@ -24,8 +30,21 @@ class PopupNewAvatar extends Popup {
 
       this._handleNewImage(avatarLink);
 
-      this.closePopup();
+      setTimeout(() => {
+        this.closePopup();
+      },1000)
     });
+  }
+  
+  _setLoading(isLoading) {
+    if (!this._submitButton) return;
+
+    if (isLoading) {
+      this._defaultText = this._submitButton.textContent;
+      this._submitButton.textContent = "Guardando...";
+    } else {
+      this._submitButton.textContent = this._defaultText;
+    }
   }
 }
 

@@ -7,6 +7,8 @@ class Api {
         };
     }
 
+
+
     getDataUser() {
         return fetch(`${this.URL}/users/me`, {
             method: "GET",
@@ -16,14 +18,12 @@ class Api {
         .then(res => {
             if (res.ok) {
                 return (  
-                    console.log(res.status),
                     res.json());                   
             } else {
                 return Promise.reject(`Error: ${res.status}`);
             }
         })
         .then(data => {
-            console.log("CArgando datos");
             return data;
         })
             
@@ -42,15 +42,13 @@ class Api {
         .then(res => {
             if (res.ok) {
                 return (  
-                    console.log(res.status),
                     res.json());                   
             } else {
                 return Promise.reject(`Error: ${res.status}`);
             }
         })
         .then(data => {
-            console.log("Cargando Cars")
-            console.log(data);
+
             return data;
         })
         .catch(error => {

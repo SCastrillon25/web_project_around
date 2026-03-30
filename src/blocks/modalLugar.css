@@ -133,7 +133,7 @@
 @media (max-width:619px) {
    #modal-place {
       width: 282px;
-      height: 320px;
+      height: 330px;
       display: flex;
    }
    .modal {

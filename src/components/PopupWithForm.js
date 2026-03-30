@@ -10,7 +10,8 @@ export class PopupWithForm extends Popup {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector(".form");
-    this._inputs = this._form.querySelectorAll(".form__input");           
+    this._inputs = this._form.querySelectorAll(".form__input");
+    this._submitButton = this._popup.querySelector(".submit");        
   }
 
   closePopup() {
@@ -45,9 +46,22 @@ export class PopupWithForm extends Popup {
       const inputValues = this.getInputValues();
       this._handleFormSubmit(inputValues);
 
-      this.closePopup();
+      setTimeout(() => {
+        this.closePopup();
+      },1000)
     });
   };
+
+  _setLoading(isLoading) {
+    if (!this._submitButton) return;
+
+    if (isLoading) {
+      this._defaultText = this._submitButton.textContent;
+      this._submitButton.textContent = "Guardando...";
+    } else {
+      this._submitButton.textContent = this._defaultText;
+    }
+  }
 }
 
 
