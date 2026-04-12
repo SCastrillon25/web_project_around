@@ -1,6 +1,4 @@
 import { Popup } from "./Popup.js";
-import { Api } from "./API.js";
-
 
 
 const avatar = document.querySelector(".profile__image");
