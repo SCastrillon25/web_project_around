@@ -73,7 +73,7 @@ class Api {
     }
 
     postOrPatch(data, method) {
-        return fetch(this.URL, {
+        return fetch(`${this.URL}/users/me`, {
             method: method,
             headers: this.headers,
             body: JSON.stringify(data)
