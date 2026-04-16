@@ -1,4 +1,4 @@
-import { Api } from "./API.js";
+import { Api } from "./Api.js";
 
 
 export class Card {
